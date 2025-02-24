@@ -4,8 +4,9 @@
 	<title>Recipe Book</title>
 </head>
 <body>
-	<h1>{{ name }}</h1>
+	<h1>Recipe Book</h1>
 	
+	{{ name }}:
 	<ul>
 		{% for ingredient in ingredients %}
 			<li>{{ ingredient.name }} ({{ ingredient.quantity }})</li>
