@@ -7,8 +7,8 @@
 	<h1>Recipe Book</h1>
 	
 	<ul>
-		<li><a href='/recipe/1'}>{{ recipes.0.name }}</a></li>
-		<li><a href='/recipe/2'}>{{ recipes.1.name }}</a></li>
+		<li><a href={{ recipes.0.link }}>{{ recipes.0.name }}</a></li>
+		<li><a href={{ recipes.1.link }}>{{ recipes.1.name }}</a></li>
 	</ul>
 </body>
 </html>
