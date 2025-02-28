@@ -6,8 +6,9 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
+    url = models.CharField(max_length=50)
 
 class RecipeIngredient(models.Model):
-    quantity = models.IntegerField()
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    quantity = models.CharField(max_length=50)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='recipe')
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredient')
