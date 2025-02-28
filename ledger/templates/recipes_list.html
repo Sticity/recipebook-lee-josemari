@@ -7,8 +7,9 @@
 	<h1>Recipe Book</h1>
 	
 	<ul>
-		<li><a href={{ recipes.0.link }}>{{ recipes.0.name }}</a></li>
-		<li><a href={{ recipes.1.link }}>{{ recipes.1.name }}</a></li>
+		{% for recipe in recipes %}
+			<li><a href={{ recipe.url }}>{{ recipe.name }}</a></li>
+		{% endfor %}
 	</ul>
 </body>
 </html>
