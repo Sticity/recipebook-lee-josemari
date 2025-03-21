@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Ingredient, Recipe, RecipeIngredient
+from django.contrib.auth.models import User
+from .models import Profile, Ingredient, Recipe, RecipeIngredient
 
 # Register your models here.
 
@@ -20,8 +21,18 @@ class RecipeIngredientAdmin(admin.ModelAdmin):
 
     search_fields = ('recipe__name', 'ingredient__name',)
     list_display = ('recipe__name', 'ingredient__name', 'quantity', )
-    list_filter = ('recipe__name', )   
+    list_filter = ('recipe__name', )
+
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    can_delete = False
+
+class UserAdmin(admin.ModelAdmin):
+    inlines = [ProfileInline,]
 
 admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
