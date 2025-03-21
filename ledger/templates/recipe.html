@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-	<title>Recipe Book</title>
-</head>
-<body>
-	<h1>Recipe Book</h1>
+{% extends 'base.html' %}
+{% block title %}Recipe{% endblock %}
+{% block content %}
+	<text style="font-size:3em"><b>{{ recipe.name }}:</b></text>
+	<br>
 	
-	{{ recipe.name }}:
+	<text style="color:rgba(0,0,0,0.5); font-size:.75em">
+		Author: {{ recipe.author.name }}
+		<br>Date Created: {{ recipe.created_on}}
+		<br>Date Updated: {{ recipe.updated_on}}
+	</text>
+	
 	<ul>
 		{% for ingredient in ingredients %}
-			<li>{{ ingredient.ingredient.name }} ({{ ingredient.quantity }})</li>
+			<li style="line-height: 1.75;">{{ ingredient.ingredient.name }} ({{ ingredient.quantity }})</li>
 		{% endfor %}
 	</ul>
-</body>
-</html>
+{% endblock %}
