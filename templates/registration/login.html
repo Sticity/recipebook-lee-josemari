@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Recipe Book{% endblock %}
+{% block content %}
+	<center>
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<br>
+			<button type="submit" class="custom_button" style="width:130px; height:40px; font-size:20px; cursor:pointer;">Login</button>
+		</form>
+	</center>
+{% endblock %}

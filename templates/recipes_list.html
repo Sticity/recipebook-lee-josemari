@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Recipe List{% endblock %}
+{% block content %}
+	<text style="font-size:3em"><b>Recipe List</b></text>
+	<a href="{% url 'ledger:recipe_add' %}" title="Add Recipe" class="custom_button" style="float:right; width:50px; height:50px; font-size:30px">+</a><br><br>
+	
+	<hr>
+	{% for recipe in recipes %}
+		<li><a href="{% url 'ledger:recipe' recipe.id %}" class="recipe_list_a">{{ recipe.name }}</a><hr></li>
+	{% endfor %}
+{% endblock %}
