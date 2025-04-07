@@ -3,7 +3,7 @@
 {% block content %}
 	{% if recipe.images.first %}
 		{% for img in recipe.images.all %}
-		<img src="{{ img.image.url }}" alt="{{ img.description }}" style="float:right">
+		<img src="{{ img.image.url }}" alt="{{ img.description }}" style="float:right; width:500px; height:500px;">
 		{% endfor %}
 	{% else %}
 		{% if recipe.author.user == request.user %}
