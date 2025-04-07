@@ -49,11 +49,9 @@ def recipe_add(request):
     image_form = RecipeImageForm()
     ingredients = Ingredient.objects.all()
     
-    return render(request, 'recipe_add.html', {
-        'form': recipe_form,
-        'image_form': image_form,
-        'ingredients': ingredients
-    })
+    return render(request, 'recipe_add.html', { 'form': recipe_form,
+                                                'image_form': image_form,
+                                                'ingredients': ingredients,})
 
 @login_required
 def add_recipe_image(request, pk):
